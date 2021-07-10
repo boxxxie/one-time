@@ -21,7 +21,9 @@
                       (bit-shift-left (bit-and (digest (+ offset 1)) 0xff) 16)
                       (bit-shift-left (bit-and (digest (+ offset 2)) 0xff) 8)
                       (bit-and (digest (+ offset 3)) 0xff))]
-     (rem code 1000000))))
+     (->>
+       (rem code 1000000)
+       (format "%06d")))))
 
 (defn- hmac-sha-digest
   "Return the HMAC-SHA-xxx digest for a given secret, counter and a sha type."
