@@ -22,9 +22,9 @@
 (defn is-valid-totp-token?
   "Checks if the presented totp token is valid against a secret and options"
   ([token secret]
-   (== token (get-totp-token secret)))
+   (= token (get-totp-token secret)))
   ([token secret options]
-   (== token (get-totp-token secret options))))
+   (= token (get-totp-token secret options))))
 
 (defn get-hotp-token
   "Gets the HOTP token for the secret and counter provided"
@@ -34,4 +34,4 @@
 (defn is-valid-hotp-token?
   "Checks if the presented hotp token is valid against a secret and counter"
   [token secret counter]
-  (== token (get-hotp-token secret counter)))
+  (= token (get-hotp-token secret counter)))
